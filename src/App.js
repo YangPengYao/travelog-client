@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Route,
   Switch,
   Redirect,
@@ -69,7 +69,7 @@ function App() {
       <AuthContext.Provider
         value={{ isLoggedIn: !!token, token, uid, login, logout }}
       >
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <ThemeProvider theme={theme}>
             <MainNavigation />
             <main>
